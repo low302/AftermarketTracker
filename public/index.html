@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="DealerTrack Pro - Comprehensive automotive parts inventory, customer account management, and service order tracking system">
+    <meta name="keywords" content="automotive, parts inventory, service orders, RO management, customer accounts, dealer management">
+    <meta name="author" content="DealerTrack Pro">
+    <meta name="theme-color" content="#0066cc">
+
+    <!-- Open Graph / Social Media -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="DealerTrack Pro - Parts, Accounts & Service">
+    <meta property="og:description" content="Comprehensive automotive parts inventory, customer account management, and service order tracking system">
+
+    <title>DealerTrack Pro - Parts, Accounts & Service</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230066cc' stroke-width='2'><path d='M12 2L2 7v10c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-10-5z'/><path d='M12 8v8M8 12h8'/></svg>">
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Top Navigation Bar -->
+    <nav class="top-nav" role="navigation" aria-label="Main navigation">
+        <div class="nav-brand">
+            <svg class="logo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <path d="M12 2L2 7v10c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-10-5z"/>
+                <path d="M12 8v8M8 12h8"/>
+            </svg>
+            <span class="brand-text">DealerTrack Pro</span>
+        </div>
+        <div class="nav-user">
+            <span class="user-name" aria-label="Current user">Service Manager</span>
+            <div class="user-avatar" aria-label="User avatar">SM</div>
+        </div>
+    </nav>
+
+    <div class="app-container">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar" role="complementary" aria-label="Sidebar navigation">
+            <nav aria-label="Primary navigation menu">
+                <div class="sidebar-section">
+                    <div class="section-title">MAIN</div>
+                    <button class="nav-btn active" data-view="dashboard" aria-label="Dashboard" aria-current="page">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                            <rect x="3" y="3" width="7" height="7"/>
+                            <rect x="14" y="3" width="7" height="7"/>
+                            <rect x="14" y="14" width="7" height="7"/>
+                            <rect x="3" y="14" width="7" height="7"/>
+                        </svg>
+                        <span>Dashboard</span>
+                    </button>
+                </div>
+
+                <div class="sidebar-section">
+                    <div class="section-title">OPERATIONS</div>
+                    <button class="nav-btn" data-view="parts" aria-label="Parts Catalog">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                            <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+                            <polyline points="3.27 6.96 12 12.01 20.73 6.96"/>
+                            <line x1="12" y1="22.08" x2="12" y2="12"/>
+                        </svg>
+                        <span>Parts Catalog</span>
+                    </button>
+                    <button class="nav-btn" data-view="invoices" aria-label="Invoice Builder">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                            <polyline points="14 2 14 8 20 8"/>
+                            <line x1="16" y1="13" x2="8" y2="13"/>
+                            <line x1="16" y1="17" x2="8" y2="17"/>
+                            <polyline points="10 9 9 9 8 9"/>
+                        </svg>
+                        <span>Invoice Builder</span>
+                    </button>
+                    <button class="nav-btn" data-view="service" aria-label="Service Orders">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                            <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
+                        </svg>
+                        <span>Service Orders (RO)</span>
+                    </button>
+                    <button class="nav-btn" data-view="accounts" aria-label="Customer Accounts">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                            <circle cx="9" cy="7" r="4"/>
+                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                        </svg>
+                        <span>Accounts</span>
+                    </button>
+                </div>
+
+                <div class="sidebar-section">
+                    <div class="section-title">REPORTS</div>
+                    <button class="nav-btn" data-view="reports" aria-label="Analytics and Reports">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                            <line x1="12" y1="20" x2="12" y2="10"/>
+                            <line x1="18" y1="20" x2="18" y2="4"/>
+                            <line x1="6" y1="20" x2="6" y2="16"/>
+                        </svg>
+                        <span>Analytics</span>
+                    </button>
+                </div>
+            </nav>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="main-content" role="main" aria-label="Main content">
+            <!-- Dashboard View -->
+            <div id="dashboard-view" class="view-content active" role="region" aria-labelledby="dashboard-title">
+                <div class="view-header">
+                    <h1 id="dashboard-title">Dashboard Overview</h1>
+                    <div class="header-actions">
+                        <span class="last-updated">Last updated: <span id="last-update-time">--</span></span>
+                    </div>
+                </div>
+
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon blue">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+                            </svg>
+                        </div>
+                        <div class="stat-content">
+                            <div class="stat-label">Total Parts</div>
+                            <div class="stat-value" id="stat-total-parts">0</div>
+                        </div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-icon orange">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
+                                <line x1="12" y1="9" x2="12" y2="13"/>
+                                <line x1="12" y1="17" x2="12.01" y2="17"/>
+                            </svg>
+                        </div>
+                        <div class="stat-content">
+                            <div class="stat-label">Low Stock Alerts</div>
+                            <div class="stat-value" id="stat-low-stock">0</div>
+                        </div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-icon green">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
+                            </svg>
+                        </div>
+                        <div class="stat-content">
+                            <div class="stat-label">Open Service Orders</div>
+                            <div class="stat-value" id="stat-open-orders">0</div>
+                        </div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-icon purple">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <line x1="12" y1="1" x2="12" y2="23"/>
+                                <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+                            </svg>
+                        </div>
+                        <div class="stat-content">
+                            <div class="stat-label">Total Revenue</div>
+                            <div class="stat-value" id="stat-revenue">$0</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dashboard-grid">
+                    <div class="dashboard-card">
+                        <h3>Recent Service Orders</h3>
+                        <div id="recent-orders" class="list-container"></div>
+                    </div>
+                    <div class="dashboard-card">
+                        <h3>Inventory Alerts</h3>
+                        <div id="inventory-alerts" class="list-container"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Parts Catalog View -->
+            <div id="parts-view" class="view-content" role="region" aria-labelledby="parts-title">
+                <div class="view-header">
+                    <h1 id="parts-title">Parts Catalog</h1>
+                    <div class="header-actions">
+                        <input type="text" id="parts-search" placeholder="Search parts..." class="search-input" aria-label="Search parts by number, description, or manufacturer">
+                        <button class="btn-primary" onclick="showPartModal()" aria-label="Add new part">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                                <line x1="12" y1="5" x2="12" y2="19"/>
+                                <line x1="5" y1="12" x2="19" y2="12"/>
+                            </svg>
+                            Add Part
+                        </button>
+                    </div>
+                </div>
+
+                <div class="table-container">
+                    <table id="parts-table">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Part Number</th>
+                                <th>Manufacturer</th>
+                                <th>Category</th>
+                                <th>Labor Hrs</th>
+                                <th>Dealer Cost</th>
+                                <th>Labor Cost</th>
+                                <th>Sales Cost</th>
+                                <th>Retail Price</th>
+                                <th>Location</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="parts-tbody"></tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Invoice Builder View -->
+            <div id="invoices-view" class="view-content" role="region" aria-labelledby="invoices-title">
+                <div class="view-header">
+                    <h1 id="invoices-title">Invoice Builder</h1>
+                    <div class="header-actions">
+                        <button class="btn-primary" onclick="showInvoiceModal()" aria-label="Create new invoice">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                                <line x1="12" y1="5" x2="12" y2="19"/>
+                                <line x1="5" y1="12" x2="19" y2="12"/>
+                            </svg>
+                            New Invoice
+                        </button>
+                    </div>
+                </div>
+
+                <div class="table-container">
+                    <table id="invoices-table">
+                        <thead>
+                            <tr>
+                                <th>Invoice #</th>
+                                <th>Customer</th>
+                                <th>Date</th>
+                                <th>Items</th>
+                                <th>Subtotal</th>
+                                <th>Tax</th>
+                                <th>Total</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="invoices-tbody"></tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Service Orders View -->
+            <div id="service-view" class="view-content" role="region" aria-labelledby="service-title">
+                <div class="view-header">
+                    <h1 id="service-title">Service Orders (RO)</h1>
+                    <div class="header-actions">
+                        <select id="service-filter" class="filter-select" aria-label="Filter service orders by status">
+                            <option value="all">All Orders</option>
+                            <option value="Open">Open</option>
+                            <option value="In Progress">In Progress</option>
+                            <option value="Completed">Completed</option>
+                            <option value="Closed">Closed</option>
+                        </select>
+                        <button class="btn-primary" onclick="showServiceModal()" aria-label="Create new service order">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                                <line x1="12" y1="5" x2="12" y2="19"/>
+                                <line x1="5" y1="12" x2="19" y2="12"/>
+                            </svg>
+                            New RO
+                        </button>
+                    </div>
+                </div>
+
+                <div class="table-container">
+                    <table id="service-table">
+                        <thead>
+                            <tr>
+                                <th>RO Number</th>
+                                <th>Customer</th>
+                                <th>Vehicle</th>
+                                <th>VIN</th>
+                                <th>Status</th>
+                                <th>Advisor</th>
+                                <th>Total</th>
+                                <th>Promised Date</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="service-tbody"></tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Accounts View -->
+            <div id="accounts-view" class="view-content" role="region" aria-labelledby="accounts-title">
+                <div class="view-header">
+                    <h1 id="accounts-title">Customer Accounts</h1>
+                    <div class="header-actions">
+                        <input type="text" id="accounts-search" placeholder="Search accounts..." class="search-input" aria-label="Search accounts by number, name, email, or company">
+                        <button class="btn-primary" onclick="showAccountModal()" aria-label="Create new account">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                                <line x1="12" y1="5" x2="12" y2="19"/>
+                                <line x1="5" y1="12" x2="19" y2="12"/>
+                            </svg>
+                            New Account
+                        </button>
+                    </div>
+                </div>
+
+                <div class="table-container">
+                    <table id="accounts-table">
+                        <thead>
+                            <tr>
+                                <th>Account #</th>
+                                <th>Type</th>
+                                <th>Name</th>
+                                <th>Company</th>
+                                <th>Email</th>
+                                <th>Phone</th>
+                                <th>Balance</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="accounts-tbody"></tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Reports View -->
+            <div id="reports-view" class="view-content" role="region" aria-labelledby="reports-title">
+                <div class="view-header">
+                    <h1 id="reports-title">Analytics & Reports</h1>
+                </div>
+                <div class="reports-container">
+                    <p style="text-align: center; color: #666; padding: 40px;">Report features coming soon...</p>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Modals -->
+    <div id="modal-overlay" class="modal-overlay" onclick="closeModal()" aria-hidden="true"></div>
+
+    <!-- Part Modal -->
+    <div id="part-modal" class="modal" role="dialog" aria-labelledby="part-modal-title" aria-modal="true">
+        <div class="modal-header">
+            <h2 id="part-modal-title">Add New Part</h2>
+            <button class="modal-close" onclick="closeModal()" aria-label="Close modal">×</button>
+        </div>
+        <div class="modal-body">
+            <form id="part-form">
+                <input type="hidden" id="part-id">
+                <div class="form-grid">
+                    <div class="form-group full-width">
+                        <label>Name *</label>
+                        <input type="text" id="part-name" required placeholder="e.g., Oil Filter">
+                    </div>
+                    <div class="form-group">
+                        <label>Part Number *</label>
+                        <input type="text" id="part-number" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Manufacturer *</label>
+                        <input type="text" id="part-manufacturer" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Category</label>
+                        <select id="part-category">
+                            <option value="Engine">Engine</option>
+                            <option value="Transmission">Transmission</option>
+                            <option value="Brakes">Brakes</option>
+                            <option value="Suspension">Suspension</option>
+                            <option value="Electrical">Electrical</option>
+                            <option value="Body">Body</option>
+                            <option value="Interior">Interior</option>
+                            <option value="Fluids">Fluids</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Location</label>
+                        <input type="text" id="part-location" placeholder="e.g., A-12-3">
+                    </div>
+                    <div class="form-group">
+                        <label>Labor Time (hours)</label>
+                        <input type="number" id="part-labor-time" min="0" step="0.1" placeholder="0.0">
+                    </div>
+                    <div class="form-group">
+                        <label>Dealer Part Cost *</label>
+                        <input type="number" id="part-dealer-cost" required min="0" step="0.01" placeholder="0.00">
+                    </div>
+                    <div class="form-group">
+                        <label>Labor Cost ($/hr)</label>
+                        <input type="number" id="part-labor-cost" min="0" step="0.01" placeholder="0.00">
+                    </div>
+                    <div class="form-group">
+                        <label>Sales Department Cost *</label>
+                        <input type="number" id="part-sales-cost" required min="0" step="0.01" placeholder="0.00">
+                    </div>
+                    <div class="form-group">
+                        <label>Retail Price *</label>
+                        <input type="number" id="part-retail-price" required min="0" step="0.01" placeholder="0.00">
+                    </div>
+                </div>
+                <div class="modal-actions">
+                    <button type="button" class="btn-secondary" onclick="closeModal()">Cancel</button>
+                    <button type="submit" class="btn-primary">Save Part</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Account Modal -->
+    <div id="account-modal" class="modal" role="dialog" aria-labelledby="account-modal-title" aria-modal="true">
+        <div class="modal-header">
+            <h2 id="account-modal-title">Add New Account</h2>
+            <button class="modal-close" onclick="closeModal()" aria-label="Close modal">×</button>
+        </div>
+        <div class="modal-body">
+            <form id="account-form">
+                <input type="hidden" id="account-id">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label>Account Type *</label>
+                        <select id="account-type" required>
+                            <option value="Retail">Retail</option>
+                            <option value="Wholesale">Wholesale</option>
+                            <option value="Fleet">Fleet</option>
+                            <option value="Internal">Internal</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Account Number</label>
+                        <input type="text" id="account-number" placeholder="Auto-generated">
+                    </div>
+                    <div class="form-group">
+                        <label>Customer Name *</label>
+                        <input type="text" id="account-name" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Company</label>
+                        <input type="text" id="account-company">
+                    </div>
+                    <div class="form-group">
+                        <label>Email *</label>
+                        <input type="email" id="account-email" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Phone *</label>
+                        <input type="tel" id="account-phone" required>
+                    </div>
+                    <div class="form-group full-width">
+                        <label>Address</label>
+                        <input type="text" id="account-address">
+                    </div>
+                    <div class="form-group">
+                        <label>City</label>
+                        <input type="text" id="account-city">
+                    </div>
+                    <div class="form-group">
+                        <label>State</label>
+                        <input type="text" id="account-state" maxlength="2">
+                    </div>
+                    <div class="form-group">
+                        <label>ZIP Code</label>
+                        <input type="text" id="account-zip">
+                    </div>
+                    <div class="form-group">
+                        <label>Credit Limit</label>
+                        <input type="number" id="account-credit-limit" min="0" step="0.01" value="0">
+                    </div>
+                    <div class="form-group">
+                        <label>
+                            <input type="checkbox" id="account-tax-exempt">
+                            Tax Exempt
+                        </label>
+                    </div>
+                    <div class="form-group full-width">
+                        <label>Notes</label>
+                        <textarea id="account-notes" rows="3"></textarea>
+                    </div>
+                </div>
+                <div class="modal-actions">
+                    <button type="button" class="btn-secondary" onclick="closeModal()">Cancel</button>
+                    <button type="submit" class="btn-primary">Save Account</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Service Order Modal -->
+    <div id="service-modal" class="modal large" role="dialog" aria-labelledby="service-modal-title" aria-modal="true">
+        <div class="modal-header">
+            <h2 id="service-modal-title">New Service Order</h2>
+            <button class="modal-close" onclick="closeModal()" aria-label="Close modal">×</button>
+        </div>
+        <div class="modal-body">
+            <form id="service-form">
+                <input type="hidden" id="service-id">
+                
+                <h3 class="section-title">Customer & Vehicle Information</h3>
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label>RO Number</label>
+                        <input type="text" id="service-ro-number" placeholder="Auto-generated">
+                    </div>
+                    <div class="form-group">
+                        <label>Customer *</label>
+                        <input type="text" id="service-customer-name" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Vehicle *</label>
+                        <input type="text" id="service-vehicle" required placeholder="2023 Subaru Outback">
+                    </div>
+                    <div class="form-group">
+                        <label>VIN</label>
+                        <input type="text" id="service-vin" maxlength="17">
+                    </div>
+                    <div class="form-group">
+                        <label>Mileage</label>
+                        <input type="number" id="service-mileage" min="0">
+                    </div>
+                    <div class="form-group">
+                        <label>Promised Date</label>
+                        <input type="datetime-local" id="service-promised-date">
+                    </div>
+                </div>
+
+                <h3 class="section-title">Service Details</h3>
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label>Service Advisor *</label>
+                        <input type="text" id="service-advisor" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Technician</label>
+                        <input type="text" id="service-technician">
+                    </div>
+                    <div class="form-group">
+                        <label>Status *</label>
+                        <select id="service-status" required>
+                            <option value="Open">Open</option>
+                            <option value="In Progress">In Progress</option>
+                            <option value="Waiting for Parts">Waiting for Parts</option>
+                            <option value="Waiting for Customer">Waiting for Customer</option>
+                            <option value="Completed">Completed</option>
+                            <option value="Closed">Closed</option>
+                        </select>
+                    </div>
+                    <div class="form-group full-width">
+                        <label>Customer Concerns</label>
+                        <textarea id="service-concerns" rows="3"></textarea>
+                    </div>
+                </div>
+
+                <div class="modal-actions">
+                    <button type="button" class="btn-secondary" onclick="closeModal()">Cancel</button>
+                    <button type="submit" class="btn-primary">Save Service Order</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Toast Notification Container -->
+    <div id="toast-container" aria-live="polite" aria-atomic="true"></div>
+
+    <!-- Loading Spinner -->
+    <div id="loading-overlay" class="loading-overlay" aria-hidden="true">
+        <div class="loading-spinner"></div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
